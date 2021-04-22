@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ShibaApp</string>
+
+    <!--    error types-->
+    <string name="error_type_empty_response">Ошибка АПИ. Пустой ответ сервера</string>
+    <string name="error_type_client">Ошибка на стороне пользователя</string>
+    <string name="error_type_network">Ошибка сети. Проверьте подключение к интернету</string>
+    <string name="error_type_unauthenticated">Не авторизированный запрос</string>
+    <string name="error_type_server_error">Ошибка на стороне сервера</string>
+    <string name="error_type_unexpected">Неизвестная ошибка</string>
+
+</resources>
