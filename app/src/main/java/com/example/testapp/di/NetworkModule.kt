@@ -44,11 +44,10 @@ object NetworkModule {
 
     fun retrofitModule() = module {
         single<Converter.Factory> { GsonConverterFactory.create(get()) }
-//        single<Converter.Factory> { ScalarsConverterFactory.create() }
 
         single(apiUrlQualifier) { "https://shibe.online" }
 
-        single<Retrofit>() {
+        single<Retrofit> {
             createRetrofit(
                 url = get(apiUrlQualifier),
                 okHttpClient =  get(),

@@ -1,12 +1,12 @@
-package com.example.testapp.features.shibe.repo.source.remote
+package com.example.testapp.features.shibe.repository.source.remote
 
 import com.example.testapp.core.model.network.RemoteCommonData
 import com.example.testapp.core.model.network.ResponseState
 import com.example.testapp.features.shibe.model.remote.ShibeApi
 
-class RemoteShibeData(
+class ShibeRemoteData(
     private val shibeApi: ShibeApi
-): RemoteShibeSource, RemoteCommonData {
+): ShibeRemoteSource, RemoteCommonData {
 
     override suspend fun loadImages(): ResponseState<List<String>> {
         val response = safeApiCall { shibeApi.loadImages() }

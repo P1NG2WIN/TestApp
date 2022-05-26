@@ -24,8 +24,6 @@ class ShibeFragment : BaseFragment(R.layout.fragment_shibe) {
 
     private val shibeAdapter by lazy { ShibeAdapter().createAdapter {  } }
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -76,12 +74,10 @@ class ShibeFragment : BaseFragment(R.layout.fragment_shibe) {
     private fun showLoading() {
         with(viewBinding) {
             root.isRefreshing = true
-//            pbFrMain.isVisible = true
         }
     }
     private fun hideLoading() {
         with(viewBinding) {
-//            pbFrMain.isVisible = false
             root.isRefreshing = false
         }
     }

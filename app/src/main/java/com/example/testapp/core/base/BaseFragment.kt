@@ -27,8 +27,9 @@ abstract class BaseFragment(
         Timber.i("Lifecycle - onCreateView %s, Activity: %s", this.javaClass.simpleName, this.activity.toString())
         setHasOptionsMenu(hasOptionMenu)
 
-        if (contentLayoutId == 0)
+        if (contentLayoutId == 0) {
             return null
+        }
 
         val view = inflater.inflate(contentLayoutId, container, false)
 

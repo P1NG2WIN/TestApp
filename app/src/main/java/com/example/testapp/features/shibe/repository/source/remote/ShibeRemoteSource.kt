@@ -1,8 +1,8 @@
-package com.example.testapp.features.shibe.repo.source.remote
+package com.example.testapp.features.shibe.repository.source.remote
 
 import com.example.testapp.core.model.network.ResponseState
 
-interface RemoteShibeSource {
+interface ShibeRemoteSource {
 
     suspend fun loadImages(): ResponseState<List<String>>
 

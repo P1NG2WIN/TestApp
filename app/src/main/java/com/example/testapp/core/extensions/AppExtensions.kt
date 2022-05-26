@@ -4,7 +4,6 @@ import android.content.Context
 import com.example.testapp.R
 import com.example.testapp.core.model.network.ErrorType
 
-
 fun ErrorType.defaultMessage(context: Context): String {
     return when (this) {
         is ErrorType.ClientError -> errorMessage ?: context.getString(R.string.error_type_client)

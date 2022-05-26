@@ -7,33 +7,31 @@ import androidx.lifecycle.viewModelScope
 import com.example.testapp.core.model.Event
 import com.example.testapp.core.model.network.ErrorType
 import com.example.testapp.core.model.network.ResponseState
-import com.example.testapp.features.shibe.repo.ShibeRepo
+import com.example.testapp.features.shibe.repository.ShibeRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ShibeViewModel(
-    private val shibeRepo: ShibeRepo
+    private val shibeRepository: ShibeRepository
 ) : ViewModel() {
 
-    private val shibeData = MutableLiveData<Event<List<String>, ErrorType>>()
-    fun shibeLiveData(): LiveData<Event<List<String>, ErrorType>> = shibeData
+    private val shibeLiveData = MutableLiveData<Event<List<String>, ErrorType>>()
+    fun shibeLiveData(): LiveData<Event<List<String>, ErrorType>> = shibeLiveData
 
 
-    init {
-        load()
-    }
+    init { load() }
 
     fun load() = viewModelScope.launch(Dispatchers.IO) {
-        shibeData.postValue(Event.Loading())
-        val response = shibeRepo.loadShibeImages()
+        shibeLiveData.postValue(Event.Loading())
+        val response = shibeRepository.loadShibeImages()
 
         when (response) {
             is ResponseState.Success -> {
-                shibeData.postValue(Event.Success(response.result))
+                shibeLiveData.postValue(Event.Success(response.result))
             }
 
             is ResponseState.Error -> {
-                shibeData.postValue(Event.Error(response.errorType))
+                shibeLiveData.postValue(Event.Error(response.errorType))
             }
         }
     }
